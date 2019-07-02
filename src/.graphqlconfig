@@ -1,0 +1,10 @@
+{
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "api": {
+        "url": "http://51.144.170.9:3000"
+      }
+    }
+  }
+}
