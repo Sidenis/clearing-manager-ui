@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, NavLink, Route, Switch } from "react-router-dom";
 import ClearingCardPage from "./pages/ClearingCardPage";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
@@ -21,8 +21,8 @@ function App() {
                     <header>
                         <h1>Clearing Engine</h1>
                         <nav data-test='app-navigation'>
-                            <Link className='button' to='/'>Create</Link>
-                            <Link className='button' to='/cards'>Submissions History</Link>
+                            <NavLink activeClassName='button-outline' className='button' exact to='/'>Create</NavLink>
+                            <NavLink activeClassName='button-outline' className='button' to='/cards'>Submissions History</NavLink>
                         </nav>
                     </header>
                     <Switch>
