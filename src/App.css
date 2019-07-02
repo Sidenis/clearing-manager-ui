@@ -12,7 +12,7 @@ nav > .button {
 }
 
 .status-done {
-    background-color: green;
+    background-color: lawngreen;
 }
 
 .status-progress {
@@ -20,5 +20,5 @@ nav > .button {
 }
 
 .status-manual {
-    background-color: red;
+    background-color: orangered;
 }

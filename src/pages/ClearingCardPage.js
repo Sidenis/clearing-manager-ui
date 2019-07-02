@@ -23,7 +23,7 @@ const query = gql`
 `;
 
 export default withRouter(({ match }) => (
-    <Query query={query} variables={{ id: match.params.id }}>
+    <Query query={query} variables={{ id: match.params.id }} pollInterval={5000}>
         {({ data, loading, error }) => {
             if (error) return error;
             if (loading ) return 'Loading...';

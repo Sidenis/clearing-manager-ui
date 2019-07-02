@@ -25,12 +25,12 @@ export default ({ card }) => (
             <div className="column">
                 <strong>RULES:</strong>
             </div>
-            <div className="column">
+            <div className="column" data-test='rules-list'>
                 {card.rules
                     .map(rule =>
-                        <div
-                            className={'row status-' + rule.status.toLowerCase()}
-                        >{rule.rule}</div>)
+                        <div key={rule.rule}
+                             className={'row status-' + rule.status.toLowerCase()}
+                             data-test='rule'>{rule.rule}</div>)
                 }
             </div>
         </div>

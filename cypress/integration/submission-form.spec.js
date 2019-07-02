@@ -30,6 +30,12 @@ describe('Submission form', () => {
             .selectCountry('United States of America')
             .fillAddress('9999 Spruce St. La Puente, CA 91744')
             .submit();
+
+        cy.contains('Clearing card');
+
+        cy.get('[data-test=rules-list]')
+            .find('[data-test=rule]')
+            .should('have.lengthOf', 2);
     });
 
 });
