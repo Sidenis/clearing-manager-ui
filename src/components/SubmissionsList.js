@@ -2,6 +2,7 @@ import React from 'react';
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import { Link } from "react-router-dom";
+import { reduceState } from "../utils/submission";
 
 const submissions = gql`
     {
@@ -13,7 +14,10 @@ const submissions = gql`
             address
             broker
             peril
-            status
+            rules {
+                status
+                rule
+            }
         }
     }
 `;
@@ -27,6 +31,17 @@ export default () => {
 
                 return (
                     <table>
+                        <thead>
+                        <tr>
+                           <th>ID</th>
+                           <th>LOB</th>
+                           <th>PERIL</th>
+                           <th>BROKER</th>
+                           <th>COUNTRY</th>
+                           <th>STATUS</th>
+                           <th>ACTIONS</th>
+                        </tr>
+                        </thead>
                         <tbody>
                         {data.submissions.map(SubmissionRow)}
                         </tbody>
@@ -44,7 +59,7 @@ const SubmissionRow = (submission) => (
         <td>{submission.peril}</td>
         <td>{submission.broker}</td>
         <td>{submission.country}</td>
-        <td>{submission.status}</td>
+        <td>{reduceState(submission.rules)}</td>
         <td><Link to={'/cards/' + submission.id} className='button float-right'>View</Link></td>
     </tr>
 );

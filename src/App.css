@@ -10,3 +10,15 @@ nav {
 nav > .button {
     margin-left: 10px;
 }
+
+.status-done {
+    background-color: green;
+}
+
+.status-progress {
+    background-color: orange;
+}
+
+.status-manual {
+    background-color: red;
+}

@@ -2,10 +2,11 @@ import React from 'react';
 import { Query } from "react-apollo";
 import ClearingCard from "../components/ClearingCard";
 import { gql } from "apollo-boost";
+import { withRouter } from "react-router-dom";
 
 const query = gql`
-    query ($id: ID!){
-        submission(id: $id) {
+    query ($id: ID!) {
+        getSubmission(id: $id) {
             id
             lob
             peril
@@ -13,13 +14,21 @@ const query = gql`
             address
             country
             insuredCompany
-            status
+            rules {
+                status
+                rule
+            }
         }
     }
 `;
 
-export default ({ match }) => (
-    <Query query={query} variables={{ id: match.props.id }}>
-        {({ data }) => <ClearingCard card={data.submission}/>}
+export default withRouter(({ match }) => (
+    <Query query={query} variables={{ id: match.params.id }}>
+        {({ data, loading, error }) => {
+            if (error) return error;
+            if (loading ) return 'Loading...';
+
+            return <ClearingCard card={data.getSubmission}/>;
+        }}
     </Query>
-);
+));
