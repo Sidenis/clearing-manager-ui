@@ -23,7 +23,7 @@ export default ({ card }) => (
         </div>
         <div className="row">
             <div className="column">
-                <strong>RULES:</strong>
+                <strong>CLEARINGS:</strong>
             </div>
             <div className="column" data-test='rules-list'>
                 {card.rules
