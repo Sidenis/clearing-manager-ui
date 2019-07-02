@@ -30,7 +30,12 @@ export default ({ card }) => (
                     .map(rule =>
                         <div key={rule.rule}
                              className={'row status-' + rule.status.toLowerCase()}
-                             data-test='rule'>{rule.rule}</div>)
+                             style={{ marginBottom: 1 }}
+                             data-test='rule'>
+                            <div className='column'>{rule.rule}</div>
+                            <div className='float-right' style={{ marginRight: 10 }}><strong>{rule.status}</strong>
+                            </div>
+                        </div>)
                 }
             </div>
         </div>
