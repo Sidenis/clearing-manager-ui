@@ -9,4 +9,4 @@ export const reduceState = rules =>
                 return 'PROGRESS';
 
             return 'DONE';
-        }, 'PROGRESS');
+        }, 'DONE');
