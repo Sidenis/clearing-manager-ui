@@ -18,6 +18,9 @@ describe('Submission form', () => {
             .fillAddress('Imaginary St. 19/99')
             .submit();
 
+        cy.get('[data-test=rules-list]')
+            .find('[data-test=rule]')
+            .should('have.lengthOf', 1);
     });
 
 });

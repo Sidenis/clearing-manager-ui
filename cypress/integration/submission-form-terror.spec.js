@@ -6,7 +6,7 @@ describe('Submission form', () => {
         cy.visit('/');
     });
 
-    it('create a terrorism submission', () => {
+    it('create a USA terrorism submission', () => {
         const form = new SubmissionForm();
 
         form
@@ -17,7 +17,10 @@ describe('Submission form', () => {
             .selectCountry('United States of America')
             .fillAddress('9999 Spruce St. La Puente, CA 91744')
             .submit();
-        
+
+        cy.get('[data-test=rules-list]')
+            .find('[data-test=rule]')
+            .should('have.lengthOf', 3);
     });
 
 });

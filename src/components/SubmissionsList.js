@@ -14,7 +14,7 @@ export default ({ submissions }) => {
                 <th>COMPANY</th>
                 <th>COUNTRY</th>
                 <th>STATUS</th>
-                <th>ACTIONS</th>
+                <th style={{ textAlign: 'right', paddingRight: 25 }}>ACTIONS</th>
             </tr>
             </thead>
             <tbody>
@@ -36,7 +36,7 @@ const SubmissionRow = (submission) => {
             <td>{submission.insuredCompany}</td>
             <td>{submission.country}</td>
             <td className={'status-' + status.toLowerCase()}>{status}</td>
-            <td><Link to={'/cards/' + submission.id} className='button float-right'>View</Link></td>
+            <td><Link to={'/cards/' + submission.id} className='button float-right'>Details</Link></td>
         </tr>
     );
 };

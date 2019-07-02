@@ -35,7 +35,7 @@ describe('Submission form', () => {
 
         cy.get('[data-test=rules-list]')
             .find('[data-test=rule]')
-            .should('have.lengthOf', 2);
+            .should('have.lengthOf', 3);
     });
 
 });

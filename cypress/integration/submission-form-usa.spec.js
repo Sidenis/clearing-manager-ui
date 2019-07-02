@@ -6,7 +6,7 @@ describe('Submission form', () => {
         cy.visit('/');
     });
 
-    it('create a USA submission', () => {
+    it('create a USA fire submission', () => {
         const form = new SubmissionForm();
 
         form
@@ -18,6 +18,9 @@ describe('Submission form', () => {
             .fillAddress('Imaginary St. 19/99')
             .submit();
 
+        cy.get('[data-test=rules-list]')
+            .find('[data-test=rule]')
+            .should('have.lengthOf', 2);
     });
 
 });
