@@ -52,14 +52,18 @@ export default () => {
     );
 }
 
-const SubmissionRow = (submission) => (
-    <tr key={submission.id}>
-        <td>{submission.id}</td>
-        <td>{submission.lob}</td>
-        <td>{submission.peril}</td>
-        <td>{submission.broker}</td>
-        <td>{submission.country}</td>
-        <td>{reduceState(submission.rules)}</td>
-        <td><Link to={'/cards/' + submission.id} className='button float-right'>View</Link></td>
-    </tr>
-);
+const SubmissionRow = (submission) => {
+    const status = reduceState(submission.rules);
+
+    return (
+        <tr key={submission.id}>
+            <td>{submission.id}</td>
+            <td>{submission.lob}</td>
+            <td>{submission.peril}</td>
+            <td>{submission.broker}</td>
+            <td>{submission.country}</td>
+            <td className={'status-' + status.toLowerCase()}>{status}</td>
+            <td><Link to={'/cards/' + submission.id} className='button float-right'>View</Link></td>
+        </tr>
+    );
+};

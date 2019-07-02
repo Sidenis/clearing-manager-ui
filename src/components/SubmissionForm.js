@@ -30,6 +30,8 @@ export default ({ onSubmit }) => {
                         <Field component='select' name="peril" id="peril" data-test='peril'>
                             <option value="-1">Select a peril</option>
                             <option value="FIRE">FIRE</option>
+                            <option value="NAT_CAT">NAT_CAT</option>
+                            <option value="TERRORISM">TERRORISM</option>
                         </Field>
 
                         <label htmlFor="insured">Insured</label>

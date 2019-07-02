@@ -4,6 +4,9 @@ export const fetchCountries = async () => {
         const list = await response.json();
         return list.map(it => ({ name: it.name, code: it.alpha3Code }))
     } catch (e) {
-        return [{ name: 'Russian Federation', code: 'RUS' }];
+        return [
+            { name: 'Russian Federation', code: 'RUS' },
+            { name: 'United States of America', code: 'USD' },
+        ];
     }
 };
