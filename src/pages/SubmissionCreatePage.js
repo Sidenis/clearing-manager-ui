@@ -12,7 +12,7 @@ const addSubmission = gql`
 `;
 
 export default () => {
-    const redirectTo = ({id}) => window.location.href = '/card/' + id;
+    const redirectTo = ({id}) => window.location.href = '/cards/' + id;
 
     return (
         <>

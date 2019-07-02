@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import ClearingCardPage from "./pages/ClearingCardPage";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
@@ -25,11 +25,11 @@ function App() {
                             <Link className='button' to='/cards'>Submissions History</Link>
                         </nav>
                     </header>
-                    <div>
+                    <Switch>
                         <Route path="/" exact component={SubmissionCreatePage}/>
-                        <Route path="/cards" component={SubmissionsPage}/>
                         <Route path="/cards/:id" component={ClearingCardPage}/>
-                    </div>
+                        <Route path="/cards" component={SubmissionsPage}/>
+                    </Switch>
                 </div>
             </ApolloProvider>
         </Router>

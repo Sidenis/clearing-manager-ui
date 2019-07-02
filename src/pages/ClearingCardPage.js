@@ -1,3 +1,5 @@
 import React from 'react';
 
-export default () => null
+export default ({ match }) => (
+    <div>{match.params.id}</div>
+);

@@ -38,7 +38,7 @@ export default () => {
 }
 
 const SubmissionRow = (submission) => (
-    <tr>
+    <tr key={submission.id}>
         <td>{submission.id}</td>
         <td>{submission.lob}</td>
         <td>{submission.peril}</td>
