@@ -10,12 +10,10 @@ const submissions = gql`
             lob
             country
             insuredCompany
-            address {
-                lat
-                long
-            }
+            address
             broker
             peril
+            status
         }
     }
 `;
@@ -46,6 +44,7 @@ const SubmissionRow = (submission) => (
         <td>{submission.peril}</td>
         <td>{submission.broker}</td>
         <td>{submission.country}</td>
+        <td>{submission.status}</td>
         <td><Link to={'/cards/' + submission.id} className='button float-right'>View</Link></td>
     </tr>
 );

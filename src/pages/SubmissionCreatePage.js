@@ -13,10 +13,6 @@ const addSubmission = gql`
 
 export default () => {
     const redirectTo = ({id}) => window.location.href = '/card/' + id;
-    const stubAddress = {
-        long: 12312,
-        lat: 2384293499
-    };
 
     return (
         <>
@@ -24,7 +20,7 @@ export default () => {
             <Mutation mutation={addSubmission} update={(_, { data: { submission } }) => redirectTo(submission)}>
                 {(add) =>
                     <SubmissionForm
-                        onSubmit={(form) => add({ variables: { submission: { ...form, address: stubAddress } } })}/>
+                        onSubmit={(form) => add({ variables: { submission: form } })}/>
                 }
             </Mutation>
         </>
