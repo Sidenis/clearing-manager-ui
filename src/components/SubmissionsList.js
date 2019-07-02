@@ -1,54 +1,25 @@
 import React from 'react';
-import { Query } from "react-apollo";
-import { gql } from "apollo-boost";
 import { Link } from "react-router-dom";
 import { reduceState } from "../utils/submission";
 
-const submissions = gql`
-    {
-        submissions {
-            id
-            lob
-            country
-            insuredCompany
-            address
-            broker
-            peril
-            rules {
-                status
-                rule
-            }
-        }
-    }
-`;
-
-export default () => {
+export default ({ submissions }) => {
     return (
-        <Query query={submissions}>
-            {({ loading, data }) => {
-                if (loading) return 'Loading...';
-                if (!data || !data.submissions) return 'No data';
-
-                return (
-                    <table>
-                        <thead>
-                        <tr>
-                           <th>ID</th>
-                           <th>LOB</th>
-                           <th>PERIL</th>
-                           <th>BROKER</th>
-                           <th>COUNTRY</th>
-                           <th>STATUS</th>
-                           <th>ACTIONS</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {data.submissions.map(SubmissionRow)}
-                        </tbody>
-                    </table>
-                );
-            }}
-        </Query>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>LOB</th>
+                <th>PERIL</th>
+                <th>BROKER</th>
+                <th>COUNTRY</th>
+                <th>STATUS</th>
+                <th>ACTIONS</th>
+            </tr>
+            </thead>
+            <tbody>
+            {submissions.map(SubmissionRow)}
+            </tbody>
+        </table>
     );
 }
 
