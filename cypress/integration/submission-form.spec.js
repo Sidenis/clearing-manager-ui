@@ -12,7 +12,7 @@ describe('Submission form', () => {
         form
             .selectLineOfBusiness('LIABILITY')
             .selectPeril('FIRE')
-            .fillInsuredCompany('EPAM')
+            .fillInsuredCompany('Other company')
             .fillBroker('Darth Vader')
             .selectCountry('Russian Federation')
             .fillAddress('Imaginary St. 19/99')
@@ -25,7 +25,7 @@ describe('Submission form', () => {
         form
             .selectLineOfBusiness('LIABILITY')
             .selectPeril('TERRORISM')
-            .fillInsuredCompany('EPAM')
+            .fillInsuredCompany('My Company')
             .fillBroker('Darth Vader')
             .selectCountry('United States of America')
             .fillAddress('9999 Spruce St. La Puente, CA 91744')

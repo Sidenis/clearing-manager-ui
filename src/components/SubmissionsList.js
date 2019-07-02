@@ -11,6 +11,7 @@ export default ({ submissions }) => {
                 <th>LOB</th>
                 <th>PERIL</th>
                 <th>BROKER</th>
+                <th>COMPANY</th>
                 <th>COUNTRY</th>
                 <th>STATUS</th>
                 <th>ACTIONS</th>
@@ -32,6 +33,7 @@ const SubmissionRow = (submission) => {
             <td>{submission.lob}</td>
             <td>{submission.peril}</td>
             <td>{submission.broker}</td>
+            <td>{submission.insuredCompany}</td>
             <td>{submission.country}</td>
             <td className={'status-' + status.toLowerCase()}>{status}</td>
             <td><Link to={'/cards/' + submission.id} className='button float-right'>View</Link></td>
