@@ -20,9 +20,9 @@ function App() {
                 <div className="App container">
                     <header>
                         <h1>Clearing Engine</h1>
-                        <nav>
+                        <nav data-test='app-navigation'>
                             <Link className='button' to='/'>Create</Link>
-                            <Link className='button' to='/cards'>Submissions</Link>
+                            <Link className='button' to='/cards'>Submissions History</Link>
                         </nav>
                     </header>
                     <div>
