@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
-import SubmissionPage from "./pages/SubmissionPage";
 import ClearingCardPage from "./pages/ClearingCardPage";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import './App.css';
+import SubmissionsPage from "./pages/SubmissionsPage";
+import SubmissionCreatePage from "./pages/SubmissionCreatePage";
 
 const BE_URL = process.env.BE_URL || 'http://51.144.170.9:3000';
 
@@ -20,13 +21,14 @@ function App() {
                     <header>
                         <h1>Clearing Engine</h1>
                         <nav>
-                            <Link className='button' to='/'>Submissions</Link>
-                            <Link className='button' to='/card'>Card</Link>
+                            <Link className='button' to='/'>Create</Link>
+                            <Link className='button' to='/cards'>Submissions</Link>
                         </nav>
                     </header>
                     <div>
-                        <Route path="" exact component={SubmissionPage}/>
-                        <Route path="/card" component={ClearingCardPage}/>
+                        <Route path="/" exact component={SubmissionCreatePage}/>
+                        <Route path="/cards" component={SubmissionsPage}/>
+                        <Route path="/cards/:id" component={ClearingCardPage}/>
                     </div>
                 </div>
             </ApolloProvider>

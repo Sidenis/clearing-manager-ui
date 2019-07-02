@@ -6,8 +6,15 @@ const submissions = gql`
     {
         submissions {
             id
-            name
-            state
+            lob
+            country
+            insuredCompany
+            address {
+                lat
+                long
+            }
+            broker
+            peril
         }
     }
 `;
@@ -20,13 +27,23 @@ export default () => {
                 if (!data || !data.submissions) return 'No data';
 
                 return (
-                    <ul>
+                    <table>
+                        <tbody>
                         {data.submissions.map(SubmissionRow)}
-                    </ul>
+                        </tbody>
+                    </table>
                 );
             }}
         </Query>
     );
 }
 
-const SubmissionRow = () => <li>submission</li>;
+const SubmissionRow = (submission) => (
+    <tr>
+        <td>{submission.id}</td>
+        <td>{submission.lob}</td>
+        <td>{submission.peril}</td>
+        <td>{submission.broker}</td>
+        <td>{submission.country}</td>
+    </tr>
+);
