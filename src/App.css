@@ -1,0 +1,12 @@
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav {
+    margin-top: 15px;
+}
+
+nav > .button {
+    margin-left: 10px;
+}

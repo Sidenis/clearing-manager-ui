@@ -4,11 +4,12 @@ import SubmissionPage from "./pages/SubmissionPage";
 import ClearingCardPage from "./pages/ClearingCardPage";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import './App.css';
 
-const BE_URL = process.env.BE_URL;
+const BE_URL = process.env.BE_URL || 'http://51.144.170.9:3000';
 
 const client = new ApolloClient({
-    uri: BE_URL + '/graphql'
+    uri: BE_URL
 });
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
         <Router>
             <ApolloProvider client={client}>
                 <div className="App container">
-                    <header className="App-header">
+                    <header>
+                        <h1>Clearing Engine</h1>
                         <nav>
                             <Link className='button' to='/'>Submissions</Link>
                             <Link className='button' to='/card'>Card</Link>
